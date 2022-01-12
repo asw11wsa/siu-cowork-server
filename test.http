@@ -1,7 +1,7 @@
-GET http://localhost:3000/api/members/
+GET https://siu-cowork.herokuapp.com/api/members/14
 
 ###
-POST http://localhost:3000/api/members
+POST https://siu-cowork.herokuapp.com/api/members
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3000/api/members/100
+PUT https://siu-cowork.herokuapp.com/api/members/100
 Content-Type: application/json
 
 {
@@ -26,4 +26,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/api/members/12
+DELETE https://siu-cowork.herokuapp.com/api/members/14

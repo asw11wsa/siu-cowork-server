@@ -66,27 +66,27 @@ app.put('/api/members/:id', async (req, res) => {
   }
 });
 
-// app.delete('/api/members/:id', async (req, res) => {
-//   const { id } = req.params;
-//   const deletedCount = await Member.destroy({where : { id }});
-//   if(deletedCount){
-//     res.send({message : `${deletedCount} row(s) deleted`});
-//   }else{
-//     res.status(404).send({message:'There is no member with the id! '});
-//   }
-// })
-
 app.delete('/api/members/:id', async (req, res) => {
   const { id } = req.params;
-  const member = await Member.findOne({ where: { id } });
-  if(member){
-    const result = await member.destroy();
-    res.send(`${result[0]} row(s) deleted`);
+  const deletedCount = await Member.destroy({where : { id }});
+  if(deletedCount){
+    res.send({message : `${deletedCount} row(s) deleted`});
   }else{
-    res.status(404).send({ message: 'There is no member with the id!' });
+    res.status(404).send({message:'There is no member with the id! '});
   }
-  // 여기에 코드를 추가하세요.
-});
+})
+
+// app.delete('/api/members/:id', async (req, res) => {
+//   const { id } = req.params;
+//   const member = await Member.findOne({ where: { id } });
+//   if(member){
+//     const result = await member.destroy();
+//     res.send(`${result[0]} row(s) deleted`);
+//   }else{
+//     res.status(404).send({ message: 'There is no member with the id!' });
+//   }
+//   // 여기에 코드를 추가하세요.
+// });
 
 app.get('*', (req, res) => {
   res.sendStatus(404);
